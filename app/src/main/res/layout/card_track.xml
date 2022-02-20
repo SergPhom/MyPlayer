@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <LinearLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/play_pause"
+            android:checkable="true"
+            tools:icon="@drawable/ic_play_pause_24dp"
+            app:iconTint="#FFAA00"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:checked="false"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/play_seek"
+            android:checkable="true"
+            tools:icon="@drawable/ic_play_seek_24"
+            app:iconTint="#FFAA00"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:checked="false"
+            android:visibility="gone"/>
+
+        <TextView
+            android:layout_marginStart="20dp"
+            android:textSize="20dp"
+            android:elegantTextHeight="true"
+            android:id="@+id/track_number"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            tools:text="Any"
+            />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
