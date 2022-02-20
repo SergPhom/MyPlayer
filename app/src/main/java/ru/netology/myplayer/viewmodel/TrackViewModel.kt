@@ -47,7 +47,4 @@ class TrackViewModel: ViewModel() {
                     }
             }catch (e: Throwable){ println(" error is $e")}
     }
-
-
-
 }

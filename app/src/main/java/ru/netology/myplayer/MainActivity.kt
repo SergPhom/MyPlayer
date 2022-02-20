@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         val mediaObserver = MediaLifecycleObserver()
         lifecycle.addObserver(mediaObserver)
-        val BASE_URL = BuildConfig.BASE_URL
+        val baseUrl = BuildConfig.BASE_URL
         val adapter = TracksAdapter(object : Callback {
             var nextTrack:Track? = null
             override fun onPlayClick(tracks:List<Track>, track: Track) {
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                         player = null }
                     }
                     if(player == null) player = MediaPlayer()
-                    player?.setDataSource("$BASE_URL${track.file}")
+                    player?.setDataSource("$baseUrl${track.file}")
                     player?.setOnCompletionListener {
                         nextTrack = if (nextTrack != null){
                             viewModel.stopped(nextTrack!!)
