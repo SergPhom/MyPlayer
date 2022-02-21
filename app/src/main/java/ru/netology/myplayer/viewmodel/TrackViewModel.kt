@@ -28,10 +28,16 @@ class TrackViewModel: ViewModel() {
         } else it}
     }
 
-    fun stopped(track: Track){
-        data.value = data.value?.map { if(it.id == track?.id){
+//    fun stopped(track: Track){
+//        data.value = data.value?.map { if(it.id == track?.id){
+//            it.copy(isPlaying = false)
+//        } else it}
+//    }
+
+    fun stopTracks(){
+        data.value = data.value?.map{
             it.copy(isPlaying = false)
-        } else it}
+        }
     }
     fun getAll() = thread {
             val request: Request = Request.Builder()

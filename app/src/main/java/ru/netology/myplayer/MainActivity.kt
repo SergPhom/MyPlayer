@@ -33,17 +33,17 @@ class MainActivity : AppCompatActivity() {
             override fun onPlayClick(tracks:List<Track>, track: Track) {
                 mediaObserver.apply {
                     player?.let { if(it.isPlaying) {
+                        viewModel.stopTracks()
                         it.release()
                         player = null }
                     }
                     if(player == null) player = MediaPlayer()
                     player?.setDataSource("$baseUrl${track.file}")
                     player?.setOnCompletionListener {
+                        viewModel.stopTracks()
                         nextTrack = if (nextTrack != null){
-                            viewModel.stopped(nextTrack!!)
                             tracks[nextTrack!!.id]
                         } else{
-                            viewModel.stopped(track)
                             tracks[track.id]
                         }
                         viewModel.playing(nextTrack!!)
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                 mediaObserver.apply {
                     player?.release()
                     player = null
-                    viewModel.stopped(track)
+                    viewModel.stopTracks()
                 }
             }
 
